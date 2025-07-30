@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レシピ管理Webアプリ - 画面レイアウト図（MVP）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .wireframes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .wireframe {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .wireframe:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .wireframe h2 {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .screen-mockup {
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: #f8fafc;
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #4a5568;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .nav-item {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .nav-item.active {
+            background: #667eea;
+        }
+        
+        .sidebar {
+            position: absolute;
+            left: 0;
+            top: 64px;
+            width: 250px;
+            background: #2d3748;
+            color: white;
+            height: calc(100% - 64px);
+            padding: 20px;
+        }
+        
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+            min-height: calc(100% - 64px);
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 15px;
+            color: #cbd5e0;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu a:hover {
+            background: #4a5568;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .sidebar-menu a.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .search-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-bar {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            background: #f8fafc;
+            transition: all 0.3s;
+        }
+        
+        .search-bar:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+        
+        .search-filters {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: white;
+            font-size: 14px;
+        }
+        
+        .recipes-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .recipe-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+            background: white;
+        }
+        
+        .recipe-title {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .recipe-meta {
+            color: #718096;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .recipe-description {
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .recipe-actions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .recipe-card:hover .recipe-actions {
+            opacity: 1;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 1rem;
+        }
+        
+        .required {
+            color: #e53e3e;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: #f8fafc;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        
+        .ingredients-section {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .ingredients-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .ingredient-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 80px;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .ingredient-input {
+            padding: 10px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .ingredient-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .btn-danger {
+            background: #e53e3e;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c53030;
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .btn-icon {
+            padding: 8px;
+            border-radius: 6px;
+            width: 36px;
+            height: 36px;
+        }
+        
+        .recipe-detail {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .recipe-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f1f5f9;
+        }
+        
+        .recipe-detail-title {
+            font-size: 2.2rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .recipe-detail-meta {
+            display: flex;
+            gap: 30px;
+            color: #718096;
+            font-size: 1rem;
+        }
+        
+        .recipe-detail-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .recipe-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+        
+        .recipe-detail-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ingredients-list {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .ingredient-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .ingredient-row:last-child {
+            border-bottom: none;
+        }
+        
+        .ingredient-name {
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .ingredient-amount {
+            color: #718096;
+            font-weight: 500;
+        }
+        
+        .steps-list {
+            counter-reset: step-counter;
+        }
+        
+        .step-item {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .step-item::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -25px;
+            top: 20px;
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb {
+            color: #718096;
+            margin-bottom: 25px;
+            font-size: 14px;
+            padding: 10px 0;
+        }
+        
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .no-results {
+            text-align: center;
+            color: #718096;
+            padding: 60px;
+            background: white;
+            border-radius: 12px;
+            border: 2px dashed #e2e8f0;
+        }
+        
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .no-results h3 {
+            margin-bottom: 15px;
+            color: #4a5568;
+            font-size: 1.5rem;
+        }
+        
+        .no-results p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .stats-bar {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .search-results-info {
+            color: #4a5568;
+            font-size: 1rem;
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .view-btn {
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .view-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .view-btn:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+        
+        .view-btn:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+        
+        @media (max-width: 1200px) {
+            .wireframes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .recipe-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-250px);
+                transition: transform 0.3s;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .recipes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ingredient-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍳 レシピ管理Webアプリケーション - 画面レイアウト図（MVP機能）</h1>
+        
+        <div class="wireframes-grid">
+            <!-- 1. メイン画面（ダッシュボード・レシピ一覧） -->
+            <div class="wireframe">
+                <h2>1. メイン画面（ダッシュボード・レシピ一覧）</h2>
+                <div class="screen-mockup">
+                    <div class="header">
+                        <div class="logo">
+                            🍳 レシピ管理システム
+                        </div>
+                        <div class="nav-menu">
+                            <div class="nav-item active">ダッシュボード</div>
+                            <div class="nav-item">新規作成</div>
+                            <div class="nav-item">設定</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <ul class="sidebar-menu">
+                            <li><a href="#" class="active">📊 ダッシュボード</a></li>
+                            <li><a href="#">📝 レシピ一覧</a></li>
+                            <li><a href="#">➕ 新規作成</a></li>
+                            <li><a href="#">🔍 詳細検索</a></li>
+                            <li><a href="#">⭐ お気に入り</a></li>
+                            <li><a href="#">📈 統計</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="main-content">
+                        <div class="search-section">
+                            <input type="text" class="search-bar" placeholder="レシピ名、材料名で検索...">
+                            <div class="search-filters">
+                                <div class="filter-group">
+                                    <label>調理時間:</label>
+                                    <select class="filter-select">
+                                        <option>すべて</option>
+                                        <option>15分以内</option>
+                                        <option>30分以内</option>
+                                        <option>1時間以内</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>人数:</label>
+                                    <select class="filter-select">
+                                        <option>すべて</option>
+                                        <option>1人分</option>
+                                        <option>2-3人分</option>
+                                        <option>4人分以上</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-small">🔄 リセット</button>
+                            </div>
+                        </div>
+                        
+                        <div class="recipes-section">
+                            <div class="section-header">
+                                <h2 class="section-title">レシピ一覧 (25件)</h2>
+                                <div class="view-toggle">
+                                    <button class="view-btn active">📋 リスト</button>
+                                    <button class="view-btn">🔲 カード</button>
+                                </div>
+                            </div>
+                            
+                            <div class="recipes-grid">
+                                <div class="recipe-card">
+                                    <div class="recipe-actions">
+                                        <button class="btn btn-icon btn-secondary">✏️</button>
+                                        <button class="btn btn-icon btn-secondary">🗑️</button>
+                                    </div>
+                                    <div class="recipe-title">チキンカレー</div>
+                                    <div class="recipe-meta">
+                                        <span>⏱️ 45分</span>
+                                        <span>👥 4人分</span>
+                                        <span>📅 2025/07/25</span>
+                                    </div>
+                                    <div class="recipe-description">
+                                        定番のチキンカレー。スパイスの効いた本格的な味わいで、家族みんなが大好きな一品です。
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-card">
+                                    <div class="recipe-actions">
+                                        <button class="btn btn-icon btn-secondary">✏️</button>
+                                        <button class="btn btn-icon btn-secondary">🗑️</button>
+                                    </div>
+                                    <div class="recipe-title">ハンバーグステーキ</div>
+                                    <div class="recipe-meta">
+                                        <span>⏱️ 30分</span>
+                                        <span>👥 2人分</span>
+                                        <span>📅 2025/07/20</span>
+                                    </div>
+                                    <div class="recipe-description">
+                                        ジューシーで柔らかいハンバーグ。デミグラスソースとの相性も抜群です。
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-card">
+                                    <div class="recipe-actions">
+                                        <button class="btn btn-icon btn-secondary">✏️</button>
+                                        <button class="btn btn-icon btn-secondary">🗑️</button>
+                                    </div>
+                                    <div class="recipe-title">パスタアラビアータ</div>
+                                    <div class="recipe-meta">
+                                        <span>⏱️ 20分</span>
+                                        <span>👥 2人分</span>
+                                        <span>📅 2025/07/18</span>
+                                    </div>
+                                    <div class="recipe-description">
+                                        ピリ辛でガーリックが効いたトマトベースのパスタ。簡単で美味しい定番料理。
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-card">
+                                    <div class="recipe-actions">
+                                        <button class="btn btn-icon btn-secondary">✏️</button>
+                                        <button class="btn btn-icon btn-secondary">🗑️</button>
+                                    </div>
+                                    <div class="recipe-title">鶏の照り焼き</div>
+                                    <div class="recipe-meta">
+                                        <span>⏱️ 25分</span>
+                                        <span>👥 3人分</span>
+                                        <span>📅 2025/07/15</span>
+                                    </div>
+                                    <div class="recipe-description">
+                                        甘辛いタレが絡んだ鶏もも肉の照り焼き。ご飯との相性抜群の和食です。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2. レシピ詳細表示画面 -->
+            <div class="wireframe">
+                <h2>2. レシピ詳細表示画面</h2>
+                <div class="screen-mockup">
+                    <div class="header">
+                        <div class="logo">🍳 レシピ管理システム</div>
+                        <div class="nav-menu">
+                            <div class="nav-item">← 一覧に戻る</div>
+                            <div class="nav-item">編集</div>
+                            <div class="nav-item">印刷</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <ul class="sidebar-menu">
+                            <li><a href="#">📊 ダッシュボード</a></li>
+                            <li><a href="#" class="active">📝 レシピ一覧</a></li>
+                            <li><a href="#">➕ 新規作成</a></li>
+                            <li><a href="#">🔍 詳細検索</a></li>
+                            <li><a href="#">⭐ お気に入り</a></li>
+                            <li><a href="#">📈 統計</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="main-content">
+                        <div class="breadcrumb">
+                            <a href="#">ホーム</a> > <a href="#">レシピ一覧</a> > チキンカレー
+                        </div>
+                        
+                        <div class="recipe-detail">
+                            <div class="recipe-detail-header">
+                                <div>
+                                    <h1 class="recipe-detail-title">チキンカレー</h1>
+                                    <div class="recipe-detail-meta">
+                                        <span>⏱️ 調理時間: 45分</span>
+                                        <span>👥 4人分</span>
+                                        <span>📅 作成日: 2025/07/25</span>
+                                        <span>👀 閲覧数: 12回</span>
+                                    </div>
+                                </div>
+                                <div class="recipe-detail-actions">
+                                    <button class="btn btn-primary">編集</button>
+                                    <button class="btn btn-secondary">印刷</button>
+                                    <button class="btn btn-danger">削除</button>
+                                </div>
+                            </div>
+                            
+                            <div class="recipe-content">
+                                <div class="recipe-detail-section">
+                                    <h3 class="section-subtitle">📝 材料</h3>
+                                    <div class="ingredients-list">
+                                        <div class="ingredient-row">
+                                            <span class="ingredient-name">鶏もも肉</span>
+                                            <span class="ingredient-amount">400g</span>
+                                        </div>
+                                        <div class="ingredient-row">
+                                            <span class="ingredient-name">玉ねぎ</span>
+                                            <span class="ingredient-amount">2個（中サイズ）</span>
+                                        </div>
+                                        <div class="ingredient-row">
+                                            <span class="ingredient-name">カレールー</span>
+                                            <span class="ingredient-amount">1箱（8皿分）</span>
+                                        </div>
+                                        <div class="ingredient-row">
+                                            <span class="ingredient-name">水</span>
+                                            <span class="ingredient-amount">600ml</span>
+                                        </div>
+                                        <div class="ingredient-row">
+                                            <span class="ingredient-name">サラダ油</span>
+                                            <span class="ingredient-amount">大さじ2</span>
+                                        </div>
+                                        <div class="ingredient-row">
+                                            <span class="ingredient-name">にんじん</span>
+                                            <span class="ingredient-amount">1本</span>
+                                        </div>
+                                        <div class="ingredient-row">
+                                            <span class="ingredient-name
