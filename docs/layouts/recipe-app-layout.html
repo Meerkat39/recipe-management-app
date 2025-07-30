@@ -834,7 +834,7 @@
                     
                     <div class="main-content">
                         <div class="breadcrumb">
-                            <a href="#">ホーム</a> > <a href="#">レシピ一覧</a> > チキンカレー
+                            <a href="#">ホーム</a>  <a href="#">レシピ一覧</a>  チキンカレー
                         </div>
                         
                         <div class="recipe-detail">
@@ -860,28 +860,673 @@
                                     <h3 class="section-subtitle">📝 材料</h3>
                                     <div class="ingredients-list">
                                         <div class="ingredient-row">
-                                            <span class="ingredient-name">鶏もも肉</span>
-                                            <span class="ingredient-amount">400g</span>
+                                            <span class="ingredient-name">じゃがいも</span>
+                                            <span class="ingredient-amount">3個（中サイズ）</span>
                                         </div>
-                                        <div class="ingredient-row">
-                                            <span class="ingredient-name">玉ねぎ</span>
-                                            <span class="ingredient-amount">2個（中サイズ）</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-detail-section">
+                                    <h3 class="section-subtitle">👩‍🍳 作り方</h3>
+                                    <div class="steps-list">
+                                        <div class="step-item">
+                                            鶏もも肉を一口大に切り、玉ねぎは薄切り、にんじんとじゃがいもは乱切りにする。
                                         </div>
-                                        <div class="ingredient-row">
-                                            <span class="ingredient-name">カレールー</span>
-                                            <span class="ingredient-amount">1箱（8皿分）</span>
+                                        <div class="step-item">
+                                            鍋にサラダ油を熱し、鶏肉を中火で炒める。表面に焼き色が付いたら取り出す。
                                         </div>
-                                        <div class="ingredient-row">
-                                            <span class="ingredient-name">水</span>
-                                            <span class="ingredient-amount">600ml</span>
+                                        <div class="step-item">
+                                            同じ鍋で玉ねぎを炒め、透明になったらにんじんとじゃがいもを加えてさらに炒める。
                                         </div>
-                                        <div class="ingredient-row">
-                                            <span class="ingredient-name">サラダ油</span>
-                                            <span class="ingredient-amount">大さじ2</span>
+                                        <div class="step-item">
+                                            水を加えて煮立たせ、鶏肉を戻し入れて弱火で20分ほど煮込む。
                                         </div>
-                                        <div class="ingredient-row">
-                                            <span class="ingredient-name">にんじん</span>
-                                            <span class="ingredient-amount">1本</span>
+                                        <div class="step-item">
+                                            火を止めてカレールーを割り入れ、よく溶かしてから再び弱火で5分ほど煮込んで完成。
                                         </div>
-                                        <div class="ingredient-row">
-                                            <span class="ingredient-name
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3. レシピ新規作成画面 -->
+            <div class="wireframe">
+                <h2>3. レシピ新規作成画面</h2>
+                <div class="screen-mockup">
+                    <div class="header">
+                        <div class="logo">🍳 レシピ管理システム</div>
+                        <div class="nav-menu">
+                            <div class="nav-item">← キャンセル</div>
+                            <div class="nav-item">下書き保存</div>
+                            <div class="nav-item">保存して公開</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <ul class="sidebar-menu">
+                            <li><a href="#">📊 ダッシュボード</a></li>
+                            <li><a href="#">📝 レシピ一覧</a></li>
+                            <li><a href="#" class="active">➕ 新規作成</a></li>
+                            <li><a href="#">🔍 詳細検索</a></li>
+                            <li><a href="#">⭐ お気に入り</a></li>
+                            <li><a href="#">📈 統計</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="main-content">
+                        <div class="breadcrumb">
+                            <a href="#">ホーム</a>  <a href="#">レシピ一覧</a>  新規作成
+                        </div>
+                        
+                        <div class="form-container">
+                            <div class="section-header">
+                                <h2 class="section-title">新しいレシピを作成</h2>
+                            </div>
+                            
+                            <form>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">レシピ名 <span class="required">*</span></label>
+                                        <input type="text" class="form-input" placeholder="例: チキンカレー">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">調理時間（分）</label>
+                                        <input type="number" class="form-input" placeholder="例: 45">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">人数分</label>
+                                        <input type="number" class="form-input" placeholder="例: 4">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">準備時間（分）</label>
+                                        <input type="number" class="form-input" placeholder="例: 15">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label class="form-label">レシピの説明</label>
+                                    <textarea class="form-input form-textarea" placeholder="このレシピの特徴や魅力を簡潔に説明してください..."></textarea>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label class="form-label">材料 <span class="required">*</span></label>
+                                    <div class="ingredients-section">
+                                        <div class="ingredients-header">
+                                            <h4>材料リスト</h4>
+                                            <button type="button" class="btn btn-secondary btn-small">+ 材料を追加</button>
+                                        </div>
+                                        
+                                        <div class="ingredient-item">
+                                            <input type="text" class="ingredient-input" placeholder="材料名（例: 鶏もも肉）">
+                                            <input type="text" class="ingredient-input" placeholder="分量（例: 400）">
+                                            <input type="text" class="ingredient-input" placeholder="単位（例: g）">
+                                            <button type="button" class="btn btn-danger btn-small">削除</button>
+                                        </div>
+                                        
+                                        <div class="ingredient-item">
+                                            <input type="text" class="ingredient-input" placeholder="材料名（例: 玉ねぎ）">
+                                            <input type="text" class="ingredient-input" placeholder="分量（例: 2）">
+                                            <input type="text" class="ingredient-input" placeholder="単位（例: 個）">
+                                            <button type="button" class="btn btn-danger btn-small">削除</button>
+                                        </div>
+                                        
+                                        <div class="ingredient-item">
+                                            <input type="text" class="ingredient-input" placeholder="材料名">
+                                            <input type="text" class="ingredient-input" placeholder="分量">
+                                            <input type="text" class="ingredient-input" placeholder="単位">
+                                            <button type="button" class="btn btn-danger btn-small">削除</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label class="form-label">作り方 <span class="required">*</span></label>
+                                    <textarea class="form-input form-textarea" placeholder="手順を詳しく入力してください...&#10;&#10;1. 鶏もも肉を一口大に切り、玉ねぎは薄切りにする&#10;2. フライパンに油を熱し、鶏肉を炒める&#10;3. 玉ねぎを加えてしんなりするまで炒める&#10;4. ..."></textarea>
+                                </div>
+                                
+                                <div class="form-actions" style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                                    <button type="button" class="btn btn-secondary">キャンセル</button>
+                                    <button type="button" class="btn btn-secondary">下書き保存</button>
+                                    <button type="submit" class="btn btn-primary">保存して公開</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4. 検索結果画面 -->
+            <div class="wireframe">
+                <h2>4. 検索結果画面</h2>
+                <div class="screen-mockup">
+                    <div class="header">
+                        <div class="logo">🍳 レシピ管理システム</div>
+                        <div class="nav-menu">
+                            <div class="nav-item">ダッシュボード</div>
+                            <div class="nav-item">新規作成</div>
+                            <div class="nav-item">設定</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <ul class="sidebar-menu">
+                            <li><a href="#">📊 ダッシュボード</a></li>
+                            <li><a href="#">📝 レシピ一覧</a></li>
+                            <li><a href="#">➕ 新規作成</a></li>
+                            <li><a href="#" class="active">🔍 詳細検索</a></li>
+                            <li><a href="#">⭐ お気に入り</a></li>
+                            <li><a href="#">📈 統計</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="main-content">
+                        <div class="search-section">
+                            <input type="text" class="search-bar" value="鶏肉" placeholder="レシピ名、材料名で検索...">
+                            <div class="search-filters">
+                                <div class="filter-group">
+                                    <label>調理時間:</label>
+                                    <select class="filter-select">
+                                        <option>すべて</option>
+                                        <option>15分以内</option>
+                                        <option selected>30分以内</option>
+                                        <option>1時間以内</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>人数:</label>
+                                    <select class="filter-select">
+                                        <option>すべて</option>
+                                        <option>1人分</option>
+                                        <option>2-3人分</option>
+                                        <option>4人分以上</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-small">🔄 リセット</button>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-bar">
+                            <div class="search-results-info">
+                                「鶏肉」の検索結果: 3件見つかりました
+                            </div>
+                            <div class="view-toggle">
+                                <button class="view-btn active">📋 リスト</button>
+                                <button class="view-btn">🔲 カード</button>
+                            </div>
+                        </div>
+                        
+                        <div class="recipes-section">
+                            <div class="recipes-grid">
+                                <div class="recipe-card">
+                                    <div class="recipe-actions">
+                                        <button class="btn btn-icon btn-secondary">✏️</button>
+                                        <button class="btn btn-icon btn-secondary">🗑️</button>
+                                    </div>
+                                    <div class="recipe-title">チキンカレー</div>
+                                    <div class="recipe-meta">
+                                        <span>⏱️ 45分</span>
+                                        <span>👥 4人分</span>
+                                        <span>📅 2025/07/25</span>
+                                    </div>
+                                    <div class="recipe-description">
+                                        材料: <strong style="color: #667eea;">鶏肉</strong>、玉ねぎ、カレールー、水、にんじん...
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-card">
+                                    <div class="recipe-actions">
+                                        <button class="btn btn-icon btn-secondary">✏️</button>
+                                        <button class="btn btn-icon btn-secondary">🗑️</button>
+                                    </div>
+                                    <div class="recipe-title">鶏の照り焼き</div>
+                                    <div class="recipe-meta">
+                                        <span>⏱️ 25分</span>
+                                        <span>👥 2人分</span>
+                                        <span>📅 2025/07/22</span>
+                                    </div>
+                                    <div class="recipe-description">
+                                        材料: <strong style="color: #667eea;">鶏肉</strong>、醤油、みりん、砂糖、酒...
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-card">
+                                    <div class="recipe-actions">
+                                        <button class="btn btn-icon btn-secondary">✏️</button>
+                                        <button class="btn btn-icon btn-secondary">🗑️</button>
+                                    </div>
+                                    <div class="recipe-title">チキンサラダ</div>
+                                    <div class="recipe-meta">
+                                        <span>⏱️ 15分</span>
+                                        <span>👥 2人分</span>
+                                        <span>📅 2025/07/19</span>
+                                    </div>
+                                    <div class="recipe-description">
+                                        材料: <strong style="color: #667eea;">鶏肉</strong>、レタス、トマト、きゅうり、ドレッシング...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 5. レシピ編集画面 -->
+            <div class="wireframe">
+                <h2>5. レシピ編集画面</h2>
+                <div class="screen-mockup">
+                    <div class="header">
+                        <div class="logo">🍳 レシピ管理システム</div>
+                        <div class="nav-menu">
+                            <div class="nav-item">← キャンセル</div>
+                            <div class="nav-item">プレビュー</div>
+                            <div class="nav-item">保存</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <ul class="sidebar-menu">
+                            <li><a href="#">📊 ダッシュボード</a></li>
+                            <li><a href="#" class="active">📝 レシピ一覧</a></li>
+                            <li><a href="#">➕ 新規作成</a></li>
+                            <li><a href="#">🔍 詳細検索</a></li>
+                            <li><a href="#">⭐ お気に入り</a></li>
+                            <li><a href="#">📈 統計</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="main-content">
+                        <div class="breadcrumb">
+                            <a href="#">ホーム</a>  <a href="#">レシピ一覧</a> <a href="#">チキンカレー</a>  編集
+                        </div>
+                        
+                        <div class="form-container">
+                            <div class="section-header">
+                                <h2 class="section-title">レシピを編集 - チキンカレー</h2>
+                            </div>
+                            
+                            <form>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">レシピ名 <span class="required">*</span></label>
+                                        <input type="text" class="form-input" value="チキンカレー">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">調理時間（分）</label>
+                                        <input type="number" class="form-input" value="45">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">人数分</label>
+                                        <input type="number" class="form-input" value="4">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">準備時間（分）</label>
+                                        <input type="number" class="form-input" value="15">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label class="form-label">レシピの説明</label>
+                                    <textarea class="form-input form-textarea">定番のチキンカレー。スパイスの効いた本格的な味わいで、家族みんなが大好きな一品です。</textarea>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label class="form-label">材料 <span class="required">*</span></label>
+                                    <div class="ingredients-section">
+                                        <div class="ingredients-header">
+                                            <h4>材料リスト</h4>
+                                            <button type="button" class="btn btn-secondary btn-small">+ 材料を追加</button>
+                                        </div>
+                                        
+                                        <div class="ingredient-item">
+                                            <input type="text" class="ingredient-input" value="鶏もも肉">
+                                            <input type="text" class="ingredient-input" value="400">
+                                            <input type="text" class="ingredient-input" value="g">
+                                            <button type="button" class="btn btn-danger btn-small">削除</button>
+                                        </div>
+                                        
+                                        <div class="ingredient-item">
+                                            <input type="text" class="ingredient-input" value="玉ねぎ">
+                                            <input type="text" class="ingredient-input" value="2">
+                                            <input type="text" class="ingredient-input" value="個">
+                                            <button type="button" class="btn btn-danger btn-small">削除</button>
+                                        </div>
+                                        
+                                        <div class="ingredient-item">
+                                            <input type="text" class="ingredient-input" value="カレールー">
+                                            <input type="text" class="ingredient-input" value="1">
+                                            <input type="text" class="ingredient-input" value="箱">
+                                            <button type="button" class="btn btn-danger btn-small">削除</button>
+                                        </div>
+                                        
+                                        <div class="ingredient-item">
+                                            <input type="text" class="ingredient-input" value="水">
+                                            <input type="text" class="ingredient-input" value="600">
+                                            <input type="text" class="ingredient-input" value="ml">
+                                            <button type="button" class="btn btn-danger btn-small">削除</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label class="form-label">作り方 <span class="required">*</span></label>
+                                    <textarea class="form-input form-textarea">1. 鶏もも肉を一口大に切り、玉ねぎは薄切り、にんじんとじゃがいもは乱切りにする。
+2. 鍋にサラダ油を熱し、鶏肉を中火で炒める。表面に焼き色が付いたら取り出す。
+3. 同じ鍋で玉ねぎを炒め、透明になったらにんじんとじゃがいもを加えてさらに炒める。
+4. 水を加えて煮立たせ、鶏肉を戻し入れて弱火で20分ほど煮込む。
+5. 火を止めてカレールーを割り入れ、よく溶かしてから再び弱火で5分ほど煮込んで完成。</textarea>
+                                </div>
+                                
+                                <div class="form-actions" style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                                    <button type="button" class="btn btn-secondary">キャンセル</button>
+                                    <button type="button" class="btn btn-secondary">プレビュー</button>
+                                    <button type="submit" class="btn btn-primary">変更を保存</button>
+                                    <button type="button" class="btn btn-danger">レシピを削除</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 6. 検索結果なし画面 -->
+            <div class="wireframe">
+                <h2>6. 検索結果なし画面</h2>
+                <div class="screen-mockup">
+                    <div class="header">
+                        <div class="logo">🍳 レシピ管理システム</div>
+                        <div class="nav-menu">
+                            <div class="nav-item">ダッシュボード</div>
+                            <div class="nav-item">新規作成</div>
+                            <div class="nav-item">設定</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <ul class="sidebar-menu">
+                            <li><a href="#">📊 ダッシュボード</a></li>
+                            <li><a href="#">📝 レシピ一覧</a></li>
+                            <li><a href="#">➕ 新規作成</a></li>
+                            <li><a href="#" class="active">🔍 詳細検索</a></li>
+                            <li><a href="#">⭐ お気に入り</a></li>
+                            <li><a href="#">📈 統計</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="main-content">
+                        <div class="search-section">
+                            <input type="text" class="search-bar" value="うなぎの蒲焼き" placeholder="レシピ名、材料名で検索...">
+                            <div class="search-filters">
+                                <div class="filter-group">
+                                    <label>調理時間:</label>
+                                    <select class="filter-select">
+                                        <option>すべて</option>
+                                        <option>15分以内</option>
+                                        <option>30分以内</option>
+                                        <option>1時間以内</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>人数:</label>
+                                    <select class="filter-select">
+                                        <option>すべて</option>
+                                        <option>1人分</option>
+                                        <option>2-3人分</option>
+                                        <option>4人分以上</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-small">🔄 リセット</button>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-bar">
+                            <div class="search-results-info">
+                                「うなぎの蒲焼き」の検索結果: 0件見つかりました
+                            </div>
+                            <div class="view-toggle">
+                                <button class="view-btn active">📋 リスト</button>
+                                <button class="view-btn">🔲 カード</button>
+                            </div>
+                        </div>
+                        
+                        <div class="recipes-section">
+                            <div class="no-results">
+                                <div class="no-results-icon">🔍</div>
+                                <h3>該当するレシピが見つかりませんでした</h3>
+                                <p>
+                                    検索条件を変更するか、新しいレシピを追加してみてください。<br>
+                                    「うなぎの蒲焼き」のレシピがあれば、ぜひ追加してください！
+                                </p>
+                                <div style="display: flex; gap: 15px; justify-content: center;">
+                                    <button class="btn btn-primary">新しいレシピを追加</button>
+                                    <button class="btn btn-secondary">検索条件をリセット</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 機能説明セクション -->
+        <div style="background: rgba(255,255,255,0.95); border-radius: 15px; padding: 40px; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <h2 style="color: #4a5568; margin-bottom: 30px; text-align: center; font-size: 2rem;">📋 MVP機能の実装ポイント</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                <div style="background: #f8fafc; padding: 25px; border-radius: 12px; border-left: 5px solid #667eea;">
+                    <h3 style="color: #4a5568; margin-bottom: 15px; font-size: 1.3rem;">🔍 検索・フィルタリング機能</h3>
+                    <ul style="color: #718096; line-height: 1.8; font-size: 1rem;">
+                        <li>レシピ名での部分一致検索</li>
+                        <li>材料名での部分一致検索</li>
+                        <li>調理時間・人数でのフィルタリング</li>
+                        <li>リアルタイム検索結果表示</li>
+                        <li>検索結果のハイライト表示</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 25px; border-radius: 12px; border-left: 5px solid #48bb78;">
+                    <h3 style="color: #4a5568; margin-bottom: 15px; font-size: 1.3rem;">📝 レシピ管理（CRUD）</h3>
+                    <ul style="color: #718096; line-height: 1.8; font-size: 1rem;">
+                        <li>レシピの新規作成・編集・削除</li>
+                        <li>材料の動的追加・削除</li>
+                        <li>必須項目の入力バリデーション</li>
+                        <li>下書き保存機能</li>
+                        <li>削除確認ダイアログ</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 25px; border-radius: 12px; border-left: 5px solid #ed8936;">
+                    <h3 style="color: #4a5568; margin-bottom: 15px; font-size: 1.3rem;">🎨 UI/UX設計</h3>
+                    <ul style="color: #718096; line-height: 1.8; font-size: 1rem;">
+                        <li>Webアプリケーション向けレイアウト</li>
+                        <li>サイドバーナビゲーション</li>
+                        <li>レスポンシブデザイン対応</li>
+                        <li>直感的な操作性</li>
+                        <li>視覚的フィードバック</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 25px; border-radius: 12px; border-left: 5px solid #9f7aea;">
+                    <h3 style="color: #4a5568; margin-bottom: 15px; font-size: 1.3rem;">🚀 技術的実装要件</h3>
+                    <ul style="color: #718096; line-height: 1.8; font-size: 1rem;">
+                        <li>データベース設計（recipes, ingredients）</li>
+                        <li>REST API設計</li>
+                        <li>フロントエンド状態管理</li>
+                        <li>入力値のサニタイズ</li>
+                        <li>エラーハンドリング</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white; text-align: center;">
+                <h3 style="margin-bottom: 15px; font-size: 1.5rem;">💡 開発のポイント</h3>
+                <p style="line-height: 1.8; font-size: 1.1rem;">
+                    このMVP版では、基本的なレシピ管理と検索機能に集中し、ユーザーが直感的に操作できるWebアプリケーションとして設計しています。<br>
+                    将来的な機能拡張（画像アップロード、カテゴリ分類、栄養管理等）を見据えた拡張性のある設計を心がけています。
+                </p>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="color: #4a5568; margin-bottom: 20px; text-align: center; font-size: 1.5rem;">📱 画面遷移フロー</h3>
+                <div style="background: #f8fafc; padding: 25px; border-radius: 12px; border: 2px solid #e2e8f0;">
+                    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; font-size: 1rem; color: #4a5568;">
+                        <div style="padding: 10px 20px; background: #667eea; color: white; border-radius: 25px; font-weight: 600;">
+                            メイン画面
+                        </div>
+                        <div style="font-size: 1.5rem;">→</div>
+                        <div style="padding: 10px 20px; background: #48bb78; color: white; border-radius: 25px; font-weight: 600;">
+                            レシピ詳細
+                        </div>
+                        <div style="font-size: 1.5rem;">→</div>
+                        <div style="padding: 10px 20px; background: #ed8936; color: white; border-radius: 25px; font-weight: 600;">
+                            編集画面
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin: 20px 0; font-size: 1.2rem; color: #718096;">または</div>
+                    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; font-size: 1rem; color: #4a5568;">
+                        <div style="padding: 10px 20px; background: #667eea; color: white; border-radius: 25px; font-weight: 600;">
+                            メイン画面
+                        </div>
+                        <div style="font-size: 1.5rem;">→</div>
+                        <div style="padding: 10px 20px; background: #9f7aea; color: white; border-radius: 25px; font-weight: 600;">
+                            新規作成
+                        </div>
+                        <div style="font-size: 1.5rem;">→</div>
+                        <div style="padding: 10px 20px; background: #38b2ac; color: white; border-radius: 25px; font-weight: 600;">
+                            保存完了
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="color: #4a5568; margin-bottom: 20px; text-align: center; font-size: 1.5rem;">🎯 実装優先度</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: #fed7d7; padding: 20px; border-radius: 10px; border-left: 5px solid #e53e3e;">
+                        <h4 style="color: #c53030; margin-bottom: 10px; font-size: 1.2rem;">🔴 最優先 (Week 1-2)</h4>
+                        <ul style="color: #742a2a; line-height: 1.6;">
+                            <li>レシピCRUD機能</li>
+                            <li>基本検索機能</li>
+                            <li>レスポンシブレイアウト</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fef5e7; padding: 20px; border-radius: 10px; border-left: 5px solid #ed8936;">
+                        <h4 style="color: #c05621; margin-bottom: 10px; font-size: 1.2rem;">🟡 高優先 (Week 3-4)</h4>
+                        <ul style="color: #744210; line-height: 1.6;">
+                            <li>フィルタリング機能</li>
+                            <li>入力バリデーション</li>
+                            <li>エラハンドリング</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #e6fffa; padding: 20px; border-radius: 10px; border-left: 5px solid #38b2ac;">
+                        <h4 style="color: #285e61; margin-bottom: 10px; font-size: 1.2rem;">🟢 中優先 (Week 5-6)</h4>
+                        <ul style="color: #234e52; line-height: 1.6;">
+                            <li>UI/UX改善</li>
+                            <li>パフォーマンス最適化</li>
+                            <li>テスト実装</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: #f7fafc; border-radius: 12px; border: 2px solid #e2e8f0;">
+                <h3 style="color: #4a5568; margin-bottom: 20px; text-align: center; font-size: 1.5rem;">💻 技術スタック推奨</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                    <div>
+                        <h4 style="color: #667eea; margin-bottom: 15px; font-size: 1.2rem;">🎨 フロントエンド</h4>
+                        <ul style="color: #4a5568; line-height: 1.6;">
+                            <li>React.js / Vue.js / Angular</li>
+                            <li>CSS Framework (Tailwind CSS推奨)</li>
+                            <li>状態管理 (Redux/Vuex)</li>
+                            <li>フォームライブラリ</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #48bb78; margin-bottom: 15px; font-size: 1.2rem;">🔧 バックエンド</h4>
+                        <ul style="color: #4a5568; line-height: 1.6;">
+                            <li>Node.js / Python / Java</li>
+                            <li>Express.js / Django / Spring Boot</li>
+                            <li>REST API設計</li>
+                            <li>バリデーションライブラリ</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #ed8936; margin-bottom: 15px; font-size: 1.2rem;">🗄️ データベース</h4>
+                        <ul style="color: #4a5568; line-height: 1.6;">
+                            <li>PostgreSQL / MySQL (推奨)</li>
+                            <li>MongoDB (NoSQL選択時)</li>
+                            <li>レシピ・材料テーブル設計</li>
+                            <li>全文検索インデックス</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center; padding: 20px; background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); border-radius: 12px; color: white;">
+                <h3 style="margin-bottom: 10px; font-size: 1.3rem;">🎉 MVP完成後の次ステップ</h3>
+                <p style="line-height: 1.6; font-size: 1rem;">
+                    基本機能の実装完了後は、ユーザーフィードバックを収集し、Phase 2A（画像機能、カテゴリ機能）の開発に進みます。<br>
+                    段階的な機能追加により、より充実したレシピ管理システムを構築していきます。
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 簡単なインタラクション機能のデモ
+        document.addEventListener('DOMContentLoaded', function() {
+            // ナビゲーションアイテムのアクティブ状態切り替え
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // サイドバーメニューのアクティブ状態切り替え
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // ビュー切り替えボタン
+            const viewBtns = document.querySelectorAll('.view-btn');
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const parent = this.parentElement;
+                    parent.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // 検索バーのフォーカス効果
+            const searchBars = document.querySelectorAll('.search-bar');
+            searchBars.forEach(bar => {
+                bar.addEventListener('focus', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                bar.addEventListener('blur', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
