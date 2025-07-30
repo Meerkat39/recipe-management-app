@@ -36,12 +36,13 @@
 
 ### Step 4: データベース設計・Prisma 設定
 
-- [ ] Prisma CLI インストール
-- [ ] SQLite 用の Prisma スキーマ作成
-- [ ] Recipe、Ingredient、Tag モデル定義
-- [ ] 初期マイグレーション実行
+- [x] Prisma CLI インストール
+- [x] SQLite 用の Prisma スキーマ作成
+- [x] Recipe、Ingredient、Tag モデル定義
+- [x] 初期マイグレーション実行
+- [ ] シードデータ投入（Prisma の seed.ts 作成・実行）
 
-**完了条件**: データベーススキーマが定義され、マイグレーションが完了していること
+**完了条件**: データベーススキーマが定義され、マイグレーションとシーディングが完了していること
 
 ### Step 5: 基本 UI コンポーネント
 
