@@ -7,6 +7,7 @@ export interface InputProps {
   required?: boolean;
   type?: "text" | "email" | "number" | "password";
   value?: string | number;
+  defaultValue?: string | number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   name?: string;
@@ -20,6 +21,7 @@ export const Input: React.FC<InputProps> = ({
   required = false,
   type = "text",
   value,
+  defaultValue,
   onChange,
   className = "",
   name,
@@ -37,6 +39,7 @@ export const Input: React.FC<InputProps> = ({
       name={name}
       type={type}
       value={value}
+      defaultValue={defaultValue}
       onChange={onChange}
       placeholder={placeholder}
       required={required}

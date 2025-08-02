@@ -53,11 +53,11 @@
 
 ### Step 6: レシピ管理機能（CRUD）
 
-- [ ] レシピ一覧ページ（/recipes）
-- [ ] レシピ詳細ページ（/recipes/[id]）
-- [ ] レシピ作成ページ（/recipes/new）
-- [ ] レシピ編集ページ（/recipes/[id]/edit）
-- [ ] Server Actions での CRUD 操作実装
+- [x] レシピ一覧ページ（/recipes）
+- [x] レシピ詳細ページ（/recipes/[id]）
+- [x] レシピ作成ページ（/recipes/new）
+- [x] レシピ編集ページ（/recipes/[id]/edit）
+- [x] Server Actions での CRUD 操作実装
 
 **完了条件**: レシピの作成、読み取り、更新、削除が全て機能すること
 
