@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export interface LayoutProps {
@@ -19,69 +20,27 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           </span>{" "}
           レシピ管理システム
         </div>
-        <nav className="flex gap-6">
-          <a href="#" className="hover:text-indigo-300 font-medium">
-            ダッシュボード
-          </a>
-          <a href="#" className="hover:text-indigo-300 font-medium">
-            新規作成
-          </a>
-          <a href="#" className="hover:text-indigo-300 font-medium">
-            設定
-          </a>
-        </nav>
+        {/* ヘッダーのナビゲーションは削除 */}
       </header>
       <div className="flex">
         {/* サイドバー */}
         <aside className="w-64 bg-gray-900 text-white min-h-[calc(100vh-64px)] p-6">
           <ul className="space-y-4">
             <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-indigo-300"
-              >
-                <span>📊</span>ダッシュボード
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
+              <Link
+                href="/recipes"
                 className="flex items-center gap-2 hover:text-indigo-300"
               >
                 <span>📝</span>レシピ一覧
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/recipes/new"
                 className="flex items-center gap-2 hover:text-indigo-300"
               >
                 <span>➕</span>新規作成
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-indigo-300"
-              >
-                <span>🔍</span>詳細検索
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-indigo-300"
-              >
-                <span>⭐</span>お気に入り
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-indigo-300"
-              >
-                <span>📈</span>統計
-              </a>
+              </Link>
             </li>
           </ul>
         </aside>
